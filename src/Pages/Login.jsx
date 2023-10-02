@@ -4,7 +4,7 @@ import { UserContext } from "../Authentications/AuthContext";
 import Loading from "../Components/Loading";
 
 const Login = () => {
-  const { user, signIn } = useContext(UserContext);
+  const { user, signIn, signInWithGoogle } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -63,9 +63,19 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button type="submit" className="btn btn-primary">
+                    Login
+                  </button>
                 </div>
               </form>
+            </div>
+            <div className="">
+              <button
+                onClick={() => signInWithGoogle()}
+                className="btn btn-primary"
+              >
+                Sign with Google
+              </button>
             </div>
             <p>
               Don't have any account? Please{" "}

@@ -11,6 +11,7 @@ import AuthContext from "./Authentications/AuthContext";
 import Dashboard from "./Pages/Dashboard";
 import About from "./Pages/About";
 import PrivateRoute from "./Authentications/PrivateRoute";
+import Profile from "./Pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <PrivateRoute><Profile/></PrivateRoute>
       },
       {
         path: "/signup",
