@@ -1,15 +1,18 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../Authentications/AuthContext";
 
 const Login = () => {
   const { signIn } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
     signIn(email.value, password.value)
       .then((result) => {
         console.log(result.user);
+        navigate("/dashboard");
       })
       .then((error) => {
         console.error(error);

@@ -9,6 +9,8 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import AuthContext from "./Authentications/AuthContext";
 import Dashboard from "./Pages/Dashboard";
+import About from "./Pages/About";
+import PrivateRoute from "./Authentications/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/about",
+        element: <About />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -29,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
     ],
   },
